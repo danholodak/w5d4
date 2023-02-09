@@ -8,12 +8,12 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
-    has_one :enrollment,
+    has_one :enrollments,
         primary_key: :id,
         foreign_key: :student_id,
         class_name: :Enrollment
 
     has_many :enrolled_courses,
-        through: :enrollment
+        through: :enrollment,
         source: :course
 end
