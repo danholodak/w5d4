@@ -8,6 +8,9 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
+
+    validates :name, presence: true
+
     has_one :enrollments,
         primary_key: :id,
         foreign_key: :student_id,

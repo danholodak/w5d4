@@ -11,6 +11,9 @@
 #
 class Course < ApplicationRecord
 
+    validates :name, :instructor_id, presence: true
+
+
     has_many :enrollments,
         primary_key: :id,
         foreign_key: :course_id,
@@ -25,5 +28,9 @@ class Course < ApplicationRecord
         foreign_key: :id,
         class_name: :Course
     
-
+    belongs_to :instructor,
+        primary_key: :id,
+        foreign_key: :instructor_id,
+        class_name: :User
+        
 end
